@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   title: 'Protosun Healthcare',
   description:
     'Committed to enhancing lives through high-quality pharmaceutical and Ayurvedic formulations.',
-  generator: 'v0.app',
   icons: {
     icon: [
       {

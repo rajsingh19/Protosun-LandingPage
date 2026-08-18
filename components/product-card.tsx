@@ -1,4 +1,5 @@
-import { Leaf, Plus } from "lucide-react"
+import { Leaf } from "lucide-react"
+import { BadgePlus } from "@/components/custom-icons"
 import React from "react"
 
 export type ProductVariant = "blue" | "green"
@@ -68,7 +69,7 @@ export function ProductCard({ title, description, icon: Icon, variant }: Product
         <div className="absolute bottom-3.5 right-5 z-10">
           {isBlue ? (
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-blue text-[oklch(1_0_0)]">
-              <Plus className="h-4 w-4" strokeWidth={2.5} />
+              <BadgePlus className="h-4 w-4" strokeWidth={2.5} />
             </span>
           ) : (
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-green text-[oklch(1_0_0)]">
