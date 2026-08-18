@@ -58,8 +58,8 @@ export function Hero() {
           alt="Ayurvedic and pharmaceutical products including a mortar and pestle with herbs, medicine bottles, tablets, and capsules"
           className="h-full w-full object-cover object-center lg:object-[45%_50%]"
         />
-        {/* Soft blend into the page background on the left edge */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[oklch(0.98_0.01_250)] to-transparent lg:w-32" />
+        {/* Soft blend into the page background on the top edge (mobile) / left edge (desktop) */}
+        <div className="pointer-events-none absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-[oklch(0.97_0.02_250)] to-transparent lg:inset-y-0 lg:left-0 lg:right-auto lg:h-full lg:w-[85px] lg:bg-gradient-to-r" />
       </div>
     </section>
   )

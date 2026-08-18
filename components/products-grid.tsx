@@ -71,12 +71,12 @@ const PRODUCTS: Product[] = [
 
 export function ProductsGrid() {
   return (
-    <section className="relative z-10 px-6 pb-12 pt-6 md:px-12 lg:px-20 lg:pt-6">
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+    <div className="relative z-10 pb-12 pt-10">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {PRODUCTS.map((product) => (
           <ProductCard key={product.title} {...product} />
         ))}
       </div>
-    </section>
+    </div>
   )
 }

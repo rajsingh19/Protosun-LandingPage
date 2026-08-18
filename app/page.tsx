@@ -22,26 +22,22 @@ export default function Page() {
       </section>
 
       {/* 2. ABOUT US SECTION */}
-      <section id="about" className="relative scroll-mt-[76px] border-t border-[#D8E4F5]/40 py-16 lg:py-20 bg-[oklch(1_0_0)]/15">
+      <section id="about" className="relative scroll-mt-[76px] border-t border-[#D8E4F5]/40 bg-[#f4f8fd]">
         {/* Molecular decoration (top center) */}
         <AboutMoleculeDecoration />
-        <div className="pt-2 lg:pt-0">
-          <AboutHero />
-        </div>
+        <AboutHero />
         <Founders />
       </section>
 
       {/* 3. OUR PRODUCTS SECTION */}
-      <section id="products" className="relative scroll-mt-[76px] border-t border-[#D8E4F5]/40 py-16 lg:py-20">
-        <img
-          src="/images/products-decoration.png"
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute right-0 top-0 z-0 hidden h-[460px] w-[460px] object-contain object-right opacity-25 mix-blend-multiply lg:block"
-        />
-
-        <ProductsHero />
-        <ProductsGrid />
+      <section
+        id="products"
+        className="relative scroll-mt-[76px] border-t border-[#D8E4F5]/40 bg-[linear-gradient(180deg,#fbfdff_0%,#f5f9ff_100%)] py-16 lg:py-20"
+      >
+        <div className="mx-auto max-w-[1250px] w-full px-6 md:px-12 lg:px-16">
+          <ProductsHero />
+          <ProductsGrid />
+        </div>
       </section>
 
       {/* 4. CONTACT US SECTION */}
@@ -55,12 +51,12 @@ export default function Page() {
             {/* Left Column */}
             <div className="flex flex-col">
               <h1 className="text-6xl md:text-[76px] lg:text-[62px] font-extrabold tracking-tight text-[#09094D] leading-[0.95]">
-                Contact <span className="text-[#3048FF]">Us</span>
+                Contact <span className="text-[#0863e8]">Us</span>
               </h1>
 
               <div className="mt-4.5 lg:mt-2.5 flex items-center">
-                <span className="h-3 w-3 rounded-full bg-[#3048FF]" />
-                <span className="h-[3px] w-[145px] bg-gradient-to-r from-[#3048FF] to-[#4F00FF] rounded-full" />
+                <span className="h-3 w-3 rounded-full bg-[#0863e8]" />
+                <span className="h-[3px] w-[145px] bg-gradient-to-r from-[#0863e8] to-[#2576eb] rounded-full" />
               </div>
 
               <p className="mt-7 lg:mt-3.5 max-w-[410px] text-[17px] lg:text-[15px] font-semibold leading-[1.5] lg:leading-normal text-[#09094D] opacity-90">
@@ -86,7 +82,7 @@ export default function Page() {
                 <img
                   src="/images/pharma-hero.png"
                   alt="Pharmaceutical decoration"
-                  className="h-full w-full object-cover object-[28%_68%]"
+                  className="h-full w-full object-cover object-[38%_68%]"
                   style={{
                     maskImage: "radial-gradient(circle at 50% 50%, black 30%, transparent 85%)",
                     WebkitMaskImage: "radial-gradient(circle at 50% 50%, black 30%, transparent 85%)",
@@ -110,7 +106,7 @@ export default function Page() {
       </section>
 
       {/* Single Global Footer */}
-      <footer className="relative z-10 w-full h-[45px] lg:h-[38px] flex items-center justify-center bg-gradient-to-r from-[#3048FF] to-[#4F00FF] text-white shadow-inner">
+      <footer className="relative z-10 w-full h-[45px] lg:h-[38px] flex items-center justify-center bg-gradient-to-r from-[#0863e8] to-[#2576eb] text-white shadow-inner">
         <span className="text-[13.5px] font-medium tracking-wide">
           &copy; 2024 Protosun Healthcare LLP. All Rights Reserved.
         </span>

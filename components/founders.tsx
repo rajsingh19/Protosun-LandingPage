@@ -13,33 +13,40 @@ const FOUNDERS = [
 
 export function Founders() {
   return (
-    <section className="relative z-10 px-6 pb-16 pt-6 md:px-12 lg:px-20 lg:pb-6 lg:pt-2">
-      <div className="rounded-[28px] border border-brand-blue/15 bg-[oklch(1_0_0)]/70 p-6 md:p-10 lg:p-8">
+    <div className="relative z-10 px-6 pb-16 pt-0 md:px-12 lg:px-20 mt-10 md:mt-14 lg:mt-20">
+      <div className="rounded-3xl border border-[#0863e8]/10 bg-white/80 p-6 md:p-8 lg:p-8.5 shadow-[0_4px_24px_rgba(8,99,232,0.012)]">
         {/* Heading */}
-        <h2 className="text-3xl font-bold tracking-tight text-brand-navy md:text-[34px]">
+        <h2 className="text-3xl font-bold tracking-tight text-[#09094D] md:text-[32px]">
           Our Partners &amp; Founders:
         </h2>
-        <span className="mt-3 block h-1 w-16 rounded-full bg-brand-blue" />
+        <span className="mt-4.5 block h-[1.5px] w-12 rounded-full bg-[#0863e8]/60" />
 
-        {/* Cards */}
-        <div className="mt-6 grid grid-cols-1 items-stretch gap-6 lg:grid-cols-[1fr_auto_1fr] lg:gap-0">
-          {FOUNDERS.map((founder, i) => (
-            <div key={founder.name} className="contents">
-              {i > 0 && <span className="hidden w-px self-stretch bg-brand-navy/10 lg:mx-10 lg:block" />}
-              <article className="flex items-start gap-5 rounded-2xl border border-brand-blue/15 bg-[oklch(1_0_0)]/80 p-6 md:p-7">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-brand-blue/10">
-                  <UserRound className="h-8 w-8 text-brand-blue" strokeWidth={1.7} />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-brand-blue">{founder.name}</h3>
-                  <span className="mt-2 block h-0.5 w-14 rounded-full bg-brand-blue/60" />
-                  <p className="mt-3 text-lg leading-relaxed text-brand-navy/85">{founder.description}</p>
-                </div>
-              </article>
-            </div>
+        {/* Cards Grid */}
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-9">
+          {FOUNDERS.map((founder) => (
+            <article
+              key={founder.name}
+              className="flex items-center gap-6 rounded-2xl border border-[#0863e8]/8 bg-white p-7 transition-all duration-300 ease-out hover:-translate-y-[3px] hover:shadow-md hover:border-[#0863e8]/25 group h-full"
+            >
+              {/* Icon Container */}
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#0863e8]/8 transition-transform duration-300 group-hover:scale-[1.05]">
+                <UserRound className="h-7 w-7 text-[#0863e8]" strokeWidth={1.8} />
+              </div>
+              
+              {/* Text content */}
+              <div className="flex flex-col justify-center">
+                <h3 className="text-[22px] font-bold text-[#0863e8] leading-tight">
+                  {founder.name}
+                </h3>
+                <span className="mt-2 block h-[1.5px] w-10 rounded-full bg-[#0863e8]/40 transition-all duration-300 group-hover:w-14" />
+                <p className="mt-3 text-[16px] leading-[1.6] text-[#09094D]/80 font-medium">
+                  {founder.description}
+                </p>
+              </div>
+            </article>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   )
 }
