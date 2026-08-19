@@ -70,12 +70,12 @@ export default function Page() {
                 <ContactInfoCard
                   type="email"
                   title="Email"
-                  value="info@protosunhealthcare.com"
+                  value="protosunhealthcare@gmail.com"
                 />
                 <ContactInfoCard
                   type="phone"
                   title="Phone"
-                  value="+91 9876543210"
+                  value="+91 7905109467"
                 />
               </div>
 

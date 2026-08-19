@@ -67,7 +67,7 @@ export async function POST(request: Request) {
     }
 
     // Determine target email address
-    const toEmail = process.env.CONTACT_EMAIL || "rajsingh190904@gmail.com"
+    const toEmail = process.env.CONTACT_EMAIL || "protosunhealthcare@gmail.com"
 
     // Construct the email body
     const emailSubject = `New Contact Form Message - ${subject.trim()}`
