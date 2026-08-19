@@ -10,9 +10,30 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Protosun Healthcare',
+  title: 'Protosun Healthcare | Pharmaceutical & Healthcare Company',
   description:
-    'Committed to enhancing lives through high-quality pharmaceutical and Ayurvedic formulations.',
+    'Protosun Healthcare is a pharmaceutical and healthcare company dedicated to delivering effective, safe, and high-quality pharmaceutical and Ayurvedic formulations.',
+  metadataBase: new URL('https://protosunhealthcare.in'),
+  alternates: {
+    canonical: 'https://protosunhealthcare.in/',
+  },
+  openGraph: {
+    title: 'Protosun Healthcare | Pharmaceutical & Healthcare Company',
+    description:
+      'Protosun Healthcare is a pharmaceutical and healthcare company dedicated to delivering effective, safe, and high-quality pharmaceutical and Ayurvedic formulations.',
+    url: 'https://protosunhealthcare.in/',
+    siteName: 'Protosun Healthcare',
+    locale: 'en_IN',
+    type: 'website',
+    images: [
+      {
+        url: 'https://protosunhealthcare.in/protosun-logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Protosun Healthcare Logo',
+      },
+    ],
+  },
   icons: {
     icon: [
       {
@@ -45,8 +66,46 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Protosun Healthcare",
+    "alternateName": "PROTOSUN HEALTHCARE LLP",
+    "url": "https://protosunhealthcare.in/",
+    "logo": "https://protosunhealthcare.in/protosun-logo.png",
+    "email": "protosunhealthcare@gmail.com",
+    "telephone": "+91 7905109467",
+    "founder": [
+      {
+        "@type": "Person",
+        "name": "Priya Singh"
+      },
+      {
+        "@type": "Person",
+        "name": "Sima Devi"
+      }
+    ]
+  }
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Protosun Healthcare",
+    "url": "https://protosunhealthcare.in/"
+  }
+
   return (
     <html lang="en" className={`${poppins.variable} bg-background`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+      </head>
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
