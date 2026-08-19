@@ -41,6 +41,8 @@ export function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   // Disable body scroll when modal sheet is open
   useEffect(() => {
@@ -93,6 +95,7 @@ export function ContactForm() {
       newErrors.email = "Invalid email format"
     }
     
+    
     if (!formData.subject) {
       newErrors.subject = "Subject is required"
     }
@@ -107,10 +110,50 @@ export function ContactForm() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setSubmitError(null)
+
     if (validate()) {
-      setIsSubmitted(true)
+      setIsLoading(true)
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        })
+
+        const data = await response.json()
+
+        if (response.ok && data.success) {
+          setIsSubmitted(true)
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            subject: "",
+            message: "",
+          })
+          setErrors({})
+
+          // If this is in the mobile drawer, close it after 2.5 seconds
+          if (isOpen) {
+            setTimeout(() => {
+              setIsOpen(false)
+              setIsSubmitted(false)
+            }, 2500)
+          }
+        } else {
+          setSubmitError(data.error || "Unable to send your message right now. Please try again.")
+        }
+      } catch (err) {
+        console.error("Error submitting contact form:", err)
+        setSubmitError("Unable to send your message right now. Please try again.")
+      } finally {
+        setIsLoading(false)
+      }
     }
   }
 
@@ -130,6 +173,7 @@ export function ContactForm() {
           <button
             onClick={() => {
               setIsSubmitted(false)
+              setSubmitError(null)
               setFormData({
                 name: "",
                 email: "",
@@ -257,13 +301,31 @@ export function ContactForm() {
         </div>
 
         {/* Row 5: Submit Button */}
-        <div className="mt-3.5 lg:mt-2 flex justify-end">
+        <div className="mt-3.5 lg:mt-2 flex flex-col items-end gap-2">
+          {submitError && (
+            <p className="text-red-500 text-[13px] font-semibold text-right w-full">
+              {submitError}
+            </p>
+          )}
           <button
             type="submit"
-            className="flex h-[52px] xs:h-[54px] sm:h-[45px] lg:h-[38px] w-full sm:w-[175px] lg:w-[155px] items-center justify-center gap-2 rounded-[12px] md:rounded-[10px] bg-gradient-to-r from-[#3048FF] to-[#4F00FF] text-white font-semibold shadow-md hover:brightness-110 transition-shadow duration-200 cursor-pointer"
+            disabled={isLoading}
+            className="flex h-[52px] xs:h-[54px] sm:h-[45px] lg:h-[38px] w-full sm:w-[175px] lg:w-[155px] items-center justify-center gap-2 rounded-[12px] md:rounded-[10px] bg-gradient-to-r from-[#3048FF] to-[#4F00FF] text-white font-semibold shadow-md hover:brightness-110 disabled:opacity-75 disabled:cursor-not-allowed transition-shadow duration-200 cursor-pointer"
           >
-            <Send className="h-4.5 w-4.5" />
-            <span>Send Message</span>
+            {isLoading ? (
+              <>
+                <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                </svg>
+                <span>Sending...</span>
+              </>
+            ) : (
+              <>
+                <Send className="h-4.5 w-4.5" />
+                <span>Send Message</span>
+              </>
+            )}
           </button>
         </div>
       </form>
