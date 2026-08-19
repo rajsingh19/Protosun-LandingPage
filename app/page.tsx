@@ -10,19 +10,19 @@ import { TrustStrip } from "@/components/trust-strip"
 
 export default function Page() {
   return (
-    <main className="relative flex min-h-screen flex-col overflow-x-hidden pt-[76px] bg-gradient-to-b from-[oklch(0.97_0.02_250)] via-[oklch(0.98_0.01_250)] to-[oklch(0.99_0.005_250)]">
+    <main className="relative flex min-h-screen flex-col overflow-x-hidden pt-[52px] md:pt-[76px] bg-gradient-to-b from-[oklch(0.97_0.02_250)] via-[oklch(0.98_0.01_250)] to-[oklch(0.99_0.005_250)]">
       {/* Sticky Site Navbar */}
       <SiteHeader />
 
       {/* 1. HOME SECTION */}
-      <section id="home" className="relative flex flex-col scroll-mt-[76px]">
+      <section id="home" className="relative flex flex-col scroll-mt-[52px] md:scroll-mt-[76px]">
         {/* Molecular decoration (top right) */}
         <HomeMoleculeDecoration />
         <Hero />
       </section>
 
       {/* 2. ABOUT US SECTION */}
-      <section id="about" className="relative scroll-mt-[76px] border-t border-[#D8E4F5]/40 bg-[#f4f8fd]">
+      <section id="about" className="relative scroll-mt-[52px] md:scroll-mt-[76px] border-t border-[#D8E4F5]/40 bg-[#f4f8fd] overflow-hidden">
         {/* Molecular decoration (top center) */}
         <AboutMoleculeDecoration />
         <AboutHero />
@@ -32,40 +32,41 @@ export default function Page() {
       {/* 3. OUR PRODUCTS SECTION */}
       <section
         id="products"
-        className="relative scroll-mt-[76px] border-t border-[#D8E4F5]/40 bg-[linear-gradient(180deg,#fbfdff_0%,#f5f9ff_100%)] py-16 lg:py-20"
+        className="relative scroll-mt-[52px] md:scroll-mt-[76px] border-t border-[#D8E4F5]/40 bg-[linear-gradient(180deg,#fbfdff_0%,#f5f9ff_100%)] pt-10 pb-12 md:py-16 lg:py-20 overflow-hidden"
       >
-        <div className="mx-auto max-w-[1250px] w-full px-6 md:px-12 lg:px-16">
+
+        <div className="mx-auto max-w-[1250px] w-full px-5 md:px-12 lg:px-16 relative z-10">
           <ProductsHero />
           <ProductsGrid />
         </div>
       </section>
 
       {/* 4. CONTACT US SECTION */}
-      <section id="contact" className="relative scroll-mt-[76px] border-t border-[#D8E4F5]/40 py-16 lg:py-20 bg-[oklch(1_0_0)]/15">
+      <section id="contact" className="relative scroll-mt-[52px] md:scroll-mt-[76px] border-t border-[#D8E4F5]/40 py-12 md:py-16 lg:py-20 bg-[oklch(1_0_0)]/15">
         {/* Contact Molecule Decoration */}
         <ContactMoleculeDecoration />
         
-        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-20">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[42%_54%] lg:gap-[6%] items-start">
+        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-5 md:px-12 lg:px-20">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[42%_54%] lg:gap-[6%] items-start">
             
             {/* Left Column */}
             <div className="flex flex-col">
-              <h1 className="text-6xl md:text-[76px] lg:text-[62px] font-extrabold tracking-tight text-[#09094D] leading-[0.95]">
+              <h1 className="text-[42px] min-[390px]:text-[46px] md:text-[76px] lg:text-[62px] font-extrabold tracking-tight text-[#09094D] leading-[0.95]">
                 Contact <span className="text-[#0863e8]">Us</span>
               </h1>
 
-              <div className="mt-4.5 lg:mt-2.5 flex items-center">
+              <div className="mt-3 md:mt-4.5 lg:mt-2.5 flex items-center">
                 <span className="h-3 w-3 rounded-full bg-[#0863e8]" />
-                <span className="h-[3px] w-[145px] bg-gradient-to-r from-[#0863e8] to-[#2576eb] rounded-full" />
+                <span className="h-[3px] w-[120px] xs:w-[145px] bg-gradient-to-r from-[#0863e8] to-[#2576eb] rounded-full" />
               </div>
 
-              <p className="mt-7 lg:mt-3.5 max-w-[410px] text-[17px] lg:text-[15px] font-semibold leading-[1.5] lg:leading-normal text-[#09094D] opacity-90">
+              <p className="mt-5 md:mt-7 lg:mt-3.5 max-w-[410px] text-[15.5px] xs:text-[16px] md:text-[17px] lg:text-[15px] font-medium leading-[1.6] lg:leading-normal text-[#09094D] opacity-90">
                 We’re here to help! Reach out to us for any<br className="hidden sm:inline" />
                 inquiries, partnerships, or support. Our team will<br className="hidden sm:inline" />
                 be happy to assist you.
               </p>
 
-              <div className="mt-8 lg:mt-4 flex flex-col gap-3 lg:gap-2">
+              <div className="mt-6 md:mt-8 lg:mt-4 flex flex-col gap-3.5 lg:gap-2">
                 <ContactInfoCard
                   type="email"
                   title="Email"
@@ -78,15 +79,27 @@ export default function Page() {
                 />
               </div>
 
-              <div className="relative mt-4 lg:mt-2 h-[210px] lg:h-[135px] w-full max-w-[390px] lg:max-w-[340px] overflow-hidden rounded-2xl select-none pointer-events-none">
+              <div className="relative mt-8 md:mt-4 lg:mt-2 h-[180px] xs:h-[200px] md:h-[210px] lg:h-[135px] w-full max-w-[390px] lg:max-w-[340px] overflow-hidden rounded-[18px] xs:rounded-[20px] md:rounded-2xl select-none pointer-events-none">
+                <style>{`
+                  .contact-decoration-img {
+                    mask-image: radial-gradient(circle at 50% 50%, black 65%, rgba(0, 0, 0, 0.3) 90%, transparent 100%);
+                    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 65%, rgba(0, 0, 0, 0.3) 90%, transparent 100%);
+                    opacity: 0.88;
+                    filter: contrast(1.05) brightness(1.02);
+                  }
+                  @media (min-width: 768px) {
+                    .contact-decoration-img {
+                      mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 85%) !important;
+                      -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 85%) !important;
+                      opacity: 1.0 !important;
+                      filter: none !important;
+                    }
+                  }
+                `}</style>
                 <img
                   src="/images/pharma-hero.png"
                   alt="Pharmaceutical decoration"
-                  className="h-full w-full object-cover object-[38%_68%]"
-                  style={{
-                    maskImage: "radial-gradient(circle at 50% 50%, black 30%, transparent 85%)",
-                    WebkitMaskImage: "radial-gradient(circle at 50% 50%, black 30%, transparent 85%)",
-                  }}
+                  className="h-full w-full object-cover object-[38%_68%] contact-decoration-img"
                 />
               </div>
             </div>
@@ -99,15 +112,19 @@ export default function Page() {
           </div>
 
           {/* Lower Trust Strip */}
-          <div className="mt-14 lg:mt-8">
+          <div className="mt-12 lg:mt-8">
             <TrustStrip />
           </div>
         </div>
       </section>
 
       {/* Single Global Footer */}
-      <footer className="relative z-10 w-full h-[45px] lg:h-[38px] flex items-center justify-center bg-gradient-to-r from-[#0863e8] to-[#2576eb] text-white shadow-inner">
-        <span className="text-[13.5px] font-medium tracking-wide">
+      <footer className="relative z-10 w-full h-auto py-3 md:h-[45px] lg:h-[38px] flex flex-col md:flex-row items-center justify-center gap-1 md:gap-4 bg-[#0863e8] text-white shadow-inner">
+        <span className="text-[13px] md:text-[14px] font-bold tracking-wide text-center text-[#eef5ff]">
+          Protosun Healthcare LLP
+        </span>
+        <span className="hidden md:inline text-[#eef5ff]/40">|</span>
+        <span className="text-[11px] xs:text-[12px] md:text-[13px] font-medium tracking-wide text-center text-[#eef5ff]/70 px-5">
           &copy; 2024 Protosun Healthcare LLP. All Rights Reserved.
         </span>
       </footer>
@@ -236,3 +253,4 @@ function ContactMoleculeDecoration() {
     </svg>
   )
 }
+

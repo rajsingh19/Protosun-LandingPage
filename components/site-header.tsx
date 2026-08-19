@@ -53,13 +53,13 @@ export function SiteHeader() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[9999] bg-white/95 backdrop-blur-[10px] border-b border-[#D8E4F5]/40 shadow-sm transition-all duration-300">
-      <div className="flex items-center justify-between px-6 py-5 md:px-12 lg:px-20 lg:py-4.5">
+      <div className="flex items-center justify-center md:justify-between px-5 py-[14px] md:px-12 md:py-5 lg:px-20 lg:py-4.5">
         {/* Logo */}
-        <a href="#home" onClick={(e) => handleScroll(e, "home")} className="flex items-baseline gap-2.5 cursor-pointer">
-          <span className="text-3xl font-bold tracking-tight text-brand-navy md:text-[34px]">
+        <a href="#home" onClick={(e) => handleScroll(e, "home")} className="flex items-baseline gap-1.5 md:gap-2.5 cursor-pointer max-w-full">
+          <span className="text-[22px] min-[360px]:text-[24px] min-[390px]:text-[26px] font-bold tracking-tight text-brand-navy md:text-[34px]">
             Protosun
           </span>
-          <span className="text-3xl font-medium tracking-tight text-brand-blue md:text-[34px]">
+          <span className="text-[22px] min-[360px]:text-[24px] min-[390px]:text-[26px] font-medium tracking-tight text-brand-blue md:text-[34px]">
             Healthcare
           </span>
         </a>

@@ -2,20 +2,33 @@ import React from "react"
 
 export function ProductsHero() {
   return (
-    <div className="relative z-10 pt-2 pb-8 lg:pb-12">
-      <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[60%_40%] lg:gap-4">
+    <div className="relative z-10 w-full pt-2 pb-8 lg:pb-12">
+      {/* Mobile-only subtle background pot/leaves image */}
+      <div className="absolute right-[-35px] bottom-[-25px] h-[170px] w-[190px] pointer-events-none select-none opacity-[0.08] lg:hidden z-0 overflow-hidden">
+        <img
+          src="/images/products-decoration-transparent.png"
+          alt=""
+          className="h-full w-full object-contain object-right-bottom"
+          style={{
+            maskImage: "linear-gradient(to top left, black 25%, transparent 92%)",
+            WebkitMaskImage: "linear-gradient(to top left, black 25%, transparent 92%)",
+          }}
+        />
+      </div>
+
+      <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[60%_40%] lg:gap-4 relative z-10">
         {/* Left Column: Text Content */}
         <div className="relative z-20 max-w-2xl">
-          <h2 className="text-[52px] font-extrabold leading-none tracking-tight text-brand-navy md:text-[56px] lg:text-[60px]">
+          <h2 className="text-[42px] min-[390px]:text-[46px] md:text-[56px] lg:text-[60px] font-extrabold leading-none tracking-tight text-brand-navy">
             Our <span className="bg-gradient-to-r from-[#0863e8] to-[#2576eb] bg-clip-text text-transparent">Products</span>
           </h2>
 
-          <div className="mt-5 flex items-center gap-0">
+          <div className="mt-4 flex items-center gap-0">
             <span className="h-2.5 w-2.5 rounded-full bg-[#0863e8] shrink-0" />
-            <span className="h-[2px] w-[180px] rounded-full bg-gradient-to-r from-[#0863e8] to-transparent" />
+            <span className="h-[2px] w-[50%] xs:w-[60%] sm:w-[180px] rounded-full bg-gradient-to-r from-[#0863e8] to-transparent" />
           </div>
 
-          <p className="mt-6 max-w-[480px] text-[17px] leading-[1.6] text-brand-navy/90 font-medium">
+          <p className="mt-5.5 max-w-[480px] text-[16px] min-[390px]:text-[17px] leading-[1.6] text-brand-navy/90 font-medium">
             At Protosun Healthcare, we are committed to delivering high-quality pharmaceutical and
             Ayurvedic solutions that promote health, healing, and well-being.
           </p>
