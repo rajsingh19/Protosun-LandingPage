@@ -72,7 +72,7 @@ const PRODUCTS: Product[] = [
 export function ProductsGrid() {
   return (
     <div className="relative z-10 pb-12 pt-10">
-      <div className="grid grid-cols-1 gap-4 xs:gap-5 sm:gap-6 lg:grid-cols-4">
+      <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-4 gap-x-3 gap-y-3.5 md:gap-6">
         {PRODUCTS.map((product) => (
           <ProductCard key={product.title} {...product} />
         ))}
