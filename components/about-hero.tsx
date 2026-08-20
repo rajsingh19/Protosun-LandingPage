@@ -2,7 +2,7 @@ import { Building2, CalendarDays } from "lucide-react"
 
 export function AboutHero() {
   return (
-    <div className="relative w-full overflow-hidden pt-[32px] md:pt-16 lg:pt-20 pb-0 md:pb-7 lg:pb-8">
+    <div className="relative w-full overflow-hidden pt-[32px] md:pt-16 lg:pt-20 pb-[32px] md:pb-16 lg:pb-20">
       {/* Full-bleed background image on the left (Desktop) */}
       <div className="absolute inset-y-0 left-0 hidden w-1/2 overflow-hidden lg:block">
         <img

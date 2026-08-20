@@ -1,7 +1,6 @@
 import { SiteHeader } from "@/components/site-header"
 import { Hero } from "@/components/hero"
 import { AboutHero } from "@/components/about-hero"
-import { Founders } from "@/components/founders"
 import { ProductsHero } from "@/components/products-hero"
 import { ProductsGrid } from "@/components/products-grid"
 import { ContactInfoCard } from "@/components/contact-info-card"
@@ -26,7 +25,6 @@ export default function Page() {
         {/* Molecular decoration (top center) */}
         <AboutMoleculeDecoration />
         <AboutHero />
-        <Founders />
       </section>
 
       {/* 3. OUR PRODUCTS SECTION */}
